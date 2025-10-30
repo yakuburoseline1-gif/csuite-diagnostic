@@ -3,282 +3,98 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>C-Suite Voice Mismatch Diagnostic</title>
-    <!-- Load Standard Tailwind CDN -->
+    <title>Foundational Authority System (P280)</title>
+    <!-- Load Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        /* Base styles and custom animations for executive polish */
-        body { font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif; }
-        .card {
-            box-shadow: 0 4px 15px -3px rgba(0, 0, 0, 0.1), 0 2px 6px -2px rgba(0, 0, 0, 0.05);
-            transition: transform 0.3s ease;
-        }
-        .card:hover { transform: translateY(-2px); }
-        .modal { background-color: rgba(0, 0, 0, 0.7); }
-
-        /* Animation for Result Reveal (Suggestion #2) */
-        .fade-in {
-            opacity: 0;
-            transform: translateY(15px);
-            animation: fadeInUp 0.7s cubic-bezier(0.16, 1, 0.3, 1) forwards; /* Smoother animation curve */
-        }
-        @keyframes fadeInUp {
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        /* Mobile Polish (Suggestion #5) */
-        @media (max-width: 640px) {
-            .card { padding: 1.25rem !important; }
-            .answer-btn { font-size: 0.95rem; }
+        /* Custom styles for professional look */
+        body { font-family: 'Inter', sans-serif; background-color: #f7f7f7; }
+        .authority-gradient {
+            background: linear-gradient(135deg, #1f2937, #374151);
         }
     </style>
 </head>
-<body class="bg-gray-50 min-h-screen p-4 flex flex-col items-center justify-center">
+<body class="antialiased">
 
-    <div id="diagnostic-app" class="w-full max-w-xl mb-12">
-        
-        <!-- Header & Introduction -->
-        <header class="text-center mb-8 p-6 bg-white rounded-xl card">
-            <h1 class="text-3xl sm:text-4xl font-extrabold text-gray-900 mb-2 leading-tight">
-                Stop The **$50,000 Error**
+    <!-- Header Section (Dark Authority) -->
+    <header class="authority-gradient text-white py-6 shadow-xl">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h1 class="text-3xl font-extrabold tracking-tight">
+                Foundational Authority System (P280)
             </h1>
-            <h2 class="text-xl text-blue-700 font-semibold mb-4">
-                The C-Suite Voice Mismatch Diagnostic
-            </h2>
-            <p class="text-gray-600">
-                Executives rarely fail because of bad strategy. They fail because their public voice doesn't match their private expertise. Answer these four questions to diagnose your credibility leakage.
-            </p>
-        </header>
-
-        <!-- Diagnostic Questions -->
-        <div id="quiz-container" class="space-y-6">
-            
-            <!-- Question 1: Visionary vs. Operator Voice -->
-            <div id="q1" class="bg-white p-6 rounded-xl card">
-                <p class="text-sm text-gray-500 mb-3" id="progress-q1">Question 1 of 4</p>
-                <p class="text-lg font-semibold text-gray-800 mb-4">
-                    1. When you post, is your focus primarily on **generic tactics** ("5 ways to...") or **polarizing rules** (your unique, foundational philosophy)?
-                </p>
-                <div class="space-y-3">
-                    <button class="answer-btn w-full p-3 rounded-lg text-left bg-gray-100 hover:bg-yellow-100 transition duration-150" data-q="q1" data-value="1">
-                        A: Tactics (General advice everyone agrees with)
-                    </button>
-                    <button class="answer-btn w-full p-3 rounded-lg text-left bg-gray-100 hover:bg-yellow-100 transition duration-150" data-q="q1" data-value="4">
-                        B: Rules (My unique, non-negotiable philosophy)
-                    </button>
-                </div>
-            </div>
-
-            <!-- Question 2: Technical Buyer Translation Test -->
-            <div id="q2" class="bg-white p-6 rounded-xl card">
-                <p class="text-sm text-gray-500 mb-3" id="progress-q2">Question 2 of 4</p>
-                <p class="text-lg font-semibold text-gray-800 mb-4">
-                    2. If a CTO/Engineer read your recent posts, would they find it **architecturally credible** or just sound marketing fluff?
-                </p>
-                <div class="space-y-3">
-                    <button class="answer-btn w-full p-3 rounded-lg text-left bg-gray-100 hover:bg-yellow-100 transition duration-150" data-q="q2" data-value="1">
-                        A: Fluff (My team wrote it; it's high-level)
-                    </button>
-                    <button class="answer-btn w-full p-3 rounded-lg text-left bg-gray-100 hover:bg-yellow-100 transition duration-150" data-q="q2" data-value="4">
-                        B: Credible (It uses my technical language)
-                    </button>
-                </div>
-            </div>
-
-            <!-- Question 3: Vanity Metric Trap -->
-            <div id="q3" class="bg-white p-6 rounded-xl card">
-                <p class="text-sm text-gray-500 mb-3" id="progress-q3">Question 3 of 4</p>
-                <p class="text-lg font-semibold text-gray-800 mb-4">
-                    3. Do you measure content success by **impressions and likes** (Volume) or by **qualified executive replies** (Density)?
-                </p>
-                <div class="space-y-3">
-                    <button class="answer-btn w-full p-3 rounded-lg text-left bg-gray-100 hover:bg-yellow-100 transition duration-150" data-q="q3" data-value="1">
-                        A: Impressions (I need high numbers)
-                    </button>
-                    <button class="answer-btn w-full p-3 rounded-lg text-left bg-gray-100 hover:bg-yellow-100 transition duration-150" data-q="q3" data-value="4">
-                        B: Replies (I only care about the right 1%)
-                    </button>
-                </div>
-            </div>
-
-            <!-- Question 4: Founder Voice Bottleneck -->
-            <div id="q4" class="bg-white p-6 rounded-xl card">
-                <p class="text-sm text-gray-500 mb-3" id="progress-q4">Question 4 of 4</p>
-                <p class="text-lg font-semibold text-gray-800 mb-4">
-                    4. Are you spending **personal time** writing content, or is a strategist capturing your **"Rants, Regrets, and Rules"** for you?
-                </p>
-                <div class="space-y-3">
-                    <button class="answer-btn w-full p-3 rounded-lg text-left bg-gray-100 hover:bg-yellow-100 transition duration-150" data-q="q4" data-value="1">
-                        A: Personal Time (It's a huge time sink)
-                    </button>
-                    <button class="answer-btn w-full p-3 rounded-lg text-left bg-gray-100 hover:bg-yellow-100 transition duration-150" data-q="q4" data-value="4">
-                        B: Strategist (I delegate the voice capture)
-                    </button>
-                </div>
-            </div>
-
-            <!-- Calculate Button (Always visible now, but disabled until complete) -->
-            <div class="text-center pt-4">
-                <button id="calculate-btn" onclick="calculateScore()" class="w-full sm:w-auto px-8 py-3 bg-blue-700 text-white font-bold rounded-xl shadow-lg hover:bg-blue-600 transition duration-150 transform hover:scale-[1.01] opacity-50 cursor-not-allowed" disabled>
-                    Calculate My Mismatch Score
-                </button>
-            </div>
+            <p class="text-indigo-300 mt-1">The only path from Pilot Revenue to Mega-Contracts.</p>
         </div>
+    </header>
 
-        <!-- Result Section (Initially hidden) -->
-        <div id="result-container" class="hidden mt-8 p-6 rounded-xl text-center card border-4" role="alert">
-            <h3 id="result-title" class="text-2xl font-bold mb-3"></h3>
-            <p id="score-display" class="text-2xl font-extrabold text-gray-900 mb-4"></p>
-            <p id="result-description" class="text-gray-700 mb-6"></p>
-            
-            <!-- Call to Action Button to Open Modal -->
-            <button onclick="openModal()" class="inline-block px-6 py-3 bg-yellow-400 text-gray-900 font-bold rounded-xl shadow-md hover:bg-yellow-300 transition duration-150">
-                Get My Personalized Voice Report
-            </button>
-            <p class="text-xs text-gray-500 mt-2">No commitment. Report sent within 24 hours.</p>
-        </div>
-
-        <!-- Footer (FIXED for Yakubu Consulting) -->
-        <footer class="text-center text-gray-400 text-sm mt-12">
-            © 2025 C-Suite Authority Diagnostic | Powered by **Yakubu Consulting**
-        </footer>
-
-    </div>
-
-    <!-- Email Capture Modal (Hidden by default) -->
-    <div id="email-modal" class="modal fixed inset-0 z-50 flex items-center justify-center hidden" onclick="closeModal(event)">
-        <div class="bg-white p-8 rounded-xl shadow-2xl w-full max-w-sm mx-4" onclick="event.stopPropagation()">
-            <h3 class="text-2xl font-bold text-gray-900 mb-4">
-                Where should we send your report?
-            </h3>
-            <p class="text-gray-600 mb-6">
-                Enter your executive email to receive your **Personalized C-Suite Voice Report** detailing your Mismatch Score and the exact next steps.
-            </p>
-            
-            <!-- Email Form -->
-            <form id="lead-form">
-                <input type="hidden" id="final-score" name="finalScore"> <!-- Hidden score input (Suggestion #4) -->
-                <input type="email" id="executive-email" placeholder="Email (e.g., andrei@company.com)" required
-                       class="w-full p-3 border border-gray-300 rounded-lg mb-4 focus:ring-blue-500 focus:border-blue-500">
-                <button type="submit" class="w-full px-4 py-3 bg-blue-700 text-white font-bold rounded-xl hover:bg-blue-600 transition duration-150">
-                    Send My Report Now
-                </button>
-                <p id="form-message" class="text-sm text-green-600 mt-3 hidden">Report request confirmed! Check your inbox in 24 hours.</p>
-            </form>
-        </div>
-    </div>
-
-    <script>
-        const answers = {};
-        const quizLength = 4;
-        let finalScore = 0;
-
-        document.querySelectorAll('.answer-btn').forEach(button => {
-            button.addEventListener('click', (e) => {
-                const questionId = e.target.dataset.q;
-                const value = parseInt(e.target.dataset.value);
-
-                // Update selected state visually
-                document.querySelectorAll(`[data-q="${questionId}"]`).forEach(btn => {
-                    btn.classList.remove('bg-blue-700', 'text-white', 'shadow-md');
-                    btn.classList.add('bg-gray-100', 'text-gray-800');
-                });
-                e.target.classList.add('bg-blue-700', 'text-white', 'shadow-md');
-                e.target.classList.remove('bg-gray-100', 'text-gray-800');
-
-                // Store answer
-                answers[questionId] = value;
-                checkCompletion();
-            });
-        });
-
-        function checkCompletion() {
-            const calculateBtn = document.getElementById('calculate-btn');
-            if (Object.keys(answers).length === quizLength) {
-                calculateBtn.classList.remove('opacity-50', 'cursor-not-allowed');
-                calculateBtn.classList.add('opacity-100', 'cursor-pointer');
-                calculateBtn.disabled = false;
-            } else {
-                calculateBtn.classList.add('opacity-50', 'cursor-not-allowed');
-                calculateBtn.classList.remove('opacity-100', 'cursor-pointer');
-                calculateBtn.disabled = true;
-            }
-        }
-
-        function calculateScore() {
-            finalScore = Object.values(answers).reduce((sum, value) => sum + value, 0);
-            const resultContainer = document.getElementById('result-container');
-            const resultTitle = document.getElementById('result-title');
-            const resultDescription = document.getElementById('result-description');
-            const scoreDisplay = document.getElementById('score-display');
-            
-            let title = "";
-            let description = "";
-            let bgColor = "";
-            let borderColor = "";
-            
-            // Score ranges: Min 4, Max 16
-            
-            if (finalScore >= 13) {
-                title = "Excellent Alignment: Visionary Voice Active";
-                description = "Your content is highly effective and aligned with your founder philosophy. You are positioned as definitive authority. Continue to maintain this strategic focus.";
-                bgColor = "bg-green-100";
-                borderColor = "border-green-600";
-            } else if (finalScore >= 9) {
-                title = "Moderate Mismatch: Risk of Credibility Leakage";
-                description = "You have strong components, but tactical execution is diluting your authority. You are occasionally falling into the **Vanity Metric Trap.** This requires a precise 90-day fix.";
-                bgColor = "bg-yellow-100";
-                borderColor = "border-yellow-600";
-            } else { // 4-8
-                title = "Critical Mismatch: The $50,000 Error is Active";
-                description = "Your content is suffering from a severe **Content Efficiency Failure.** Your public voice is not translating into high-ticket sales. You must implement the Foundational Authority strategy immediately.";
-                bgColor = "bg-red-100";
-                borderColor = "border-red-600";
-            }
-
-            // Update DOM
-            resultTitle.textContent = title;
-            scoreDisplay.textContent = `Score: ${finalScore} / 16`; // Score display (Suggestion #3)
-            resultDescription.textContent = description;
-
-            // Apply animation and visibility
-            resultContainer.className = `mt-8 p-6 rounded-xl text-center card transition-all duration-500 ${bgColor} ${borderColor} border-4 fade-in`; // Animation (Suggestion #2)
-            resultContainer.classList.remove('hidden');
-
-            // Scroll to result
-            resultContainer.scrollIntoView({ behavior: 'smooth' });
-        }
+    <!-- Core Value Proposition -->
+    <main class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         
-        // Modal Logic
-        function openModal() {
-            // Update hidden score input before showing modal (Suggestion #4)
-            document.getElementById('final-score').value = finalScore; 
-            document.getElementById('email-modal').classList.remove('hidden');
-        }
+        <section class="bg-white rounded-xl shadow-2xl p-8 mb-12 border-t-4 border-indigo-600">
+            <h2 class="text-4xl font-bold text-gray-900 mb-4">
+                Stop Chasing. Start Closing.
+            </h2>
+            <p class="text-gray-600 text-lg">
+                Your current narrative is costing you **34% lower deal sizes** because it fails the C-Suite's test for **Certainty**. We fix the root problem, not the symptoms.
+            </p>
+        </section>
 
-        function closeModal(event) {
-            if (event && event.target.id === 'email-modal') {
-                document.getElementById('email-modal').classList.add('hidden');
-            }
-        }
+        <!-- The 3 Pillars Section -->
+        <section class="mb-12">
+            <h3 class="text-3xl font-bold text-gray-800 mb-8 text-center">The P280 System Solves 3 Critical Flaws</h3>
+            <div class="grid md:grid-cols-3 gap-6">
+                
+                <!-- Pillar 1: Risk Narrative -->
+                <div class="bg-white p-6 rounded-xl shadow-lg border border-gray-100 transform hover:shadow-xl transition duration-300">
+                    <div class="text-4xl text-indigo-600 mb-4 font-extrabold">1</div>
+                    <h4 class="text-xl font-semibold text-gray-900 mb-3">Risk Narrative Profile</h4>
+                    <p class="text-gray-600">Eliminate the **$50,000 Voice Error™** that signals weakness and risk to economic buyers. This is the foundation of authority.</p>
+                </div>
 
-        // Form Submission Logic
-        document.getElementById('lead-form').addEventListener('submit', function(event) {
-            event.preventDefault();
-            const email = document.getElementById('executive-email').value;
-            const submittedScore = document.getElementById('final-score').value; // Retrieve score
-            const formMessage = document.getElementById('form-message');
+                <!-- Pillar 2: Certainty Model -->
+                <div class="bg-white p-6 rounded-xl shadow-lg border border-gray-100 transform hover:shadow-xl transition duration-300">
+                    <div class="text-4xl text-indigo-600 mb-4 font-extrabold">2</div>
+                    <h4 class="text-xl font-semibold text-gray-900 mb-3">5:1 Certainty Ratio</h4>
+                    <p class="text-gray-600">We quantify your offer to provide a **5:1 Investment-to-Certainty Ratio**—the only language a CFO understands to sign a mega-contract.</p>
+                </div>
 
-            // Log or send the data (Email and Score) here in a real setup
-            console.log(`Lead Captured: ${email} with Score ${submittedScore}`); 
-            
-            // Simulate success
-            document.querySelector('#lead-form button[type="submit"]').style.display = 'none';
-            document.getElementById('executive-email').style.display = 'none';
-            formMessage.textContent = `Report confirmed! We will personally analyze your score (${submittedScore}/16) and send the full report to ${email} within 24 hours.`;
-            formMessage.classList.remove('hidden');
-        });
-    </script>
+                <!-- Pillar 3: Scarcity Lever -->
+                <div class="bg-white p-6 rounded-xl shadow-lg border border-gray-100 transform hover:shadow-xl transition duration-300">
+                    <div class="text-4xl text-indigo-600 mb-4 font-extrabold">3</div>
+                    <h4 class="text-xl font-semibold text-gray-900 mb-3">Scarcity & Control</h4>
+                    <p class="text-gray-600">Transition from chasing slow pilots to dictating terms. Use engineered scarcity to force rapid engagement and decision-making.</p>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Call to Action: The $2,500 Retainer -->
+        <section class="text-center bg-indigo-50 border border-indigo-200 p-8 rounded-xl shadow-inner">
+            <h3 class="text-3xl font-bold text-indigo-800 mb-4">The Non-Negotiable Next Step</h3>
+            <p class="text-gray-700 mb-6 max-w-2xl mx-auto">
+                Access to the P280 System requires the **Risk Narrative Profile**, a surgical diagnostic that isolates your core closing flaws.
+            </p>
+
+            <div class="inline-block bg-white border border-indigo-400 p-4 rounded-xl shadow-lg mb-6">
+                <span class="text-xl text-gray-500 line-through mr-3">$5,000</span>
+                <span class="text-4xl font-extrabold text-red-600">$2,500 USD</span>
+                <span class="text-sm text-gray-500 block mt-1">Initial Retainer (Non-Refundable)</span>
+            </div>
+
+            <!-- This is where your payment link will go -->
+            <a href="[INSERT YOUR $2,500 PAYMENT LINK HERE]" 
+               target="_blank" 
+               class="inline-block px-10 py-4 text-xl font-bold text-white bg-indigo-600 rounded-full hover:bg-indigo-700 transition duration-300 shadow-xl transform hover:scale-105">
+               Secure Your Risk Profile Now
+            </a>
+            <p class="text-xs text-gray-500 mt-4">Limited spots available this week to maintain focus on active clients.</p>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="text-center py-6 text-gray-500 text-sm">
+        <p>&copy; 2024 Yakubu Roseline. All rights reserved.</p>
+    </footer>
 </body>
 </html>
 
