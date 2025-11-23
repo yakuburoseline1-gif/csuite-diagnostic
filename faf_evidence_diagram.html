@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FAF 1: Semantic Degradation Evidence</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap');
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f7f9fb;
+        }
+        .flow-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 40px auto;
+            max-width: 800px;
+        }
+        .step {
+            width: 100%;
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+            margin-bottom: 20px;
+            text-align: center;
+            position: relative;
+        }
+        .arrow {
+            width: 0;
+            height: 40px;
+            border-left: 3px solid #06B6D4; /* Tailwind cyan-500 */
+            margin: 0 auto 20px;
+            position: relative;
+        }
+        .arrow::after {
+            content: '▼';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            color: #06B6D4;
+            font-size: 16px;
+        }
+        .error-tag {
+            background-color: #EF4444; /* Tailwind red-500 */
+            color: white;
+            font-weight: bold;
+            padding: 4px 8px;
+            border-radius: 6px;
+            display: inline-block;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="flow-container p-4">
+    <h1 class="text-3xl font-bold text-gray-900 mb-2">FAF 1: Semantic Degradation (Visual Evidence)</h1>
+    <p class="text-lg text-gray-600 mb-8">The silent corruption that bypasses observability and causes Model Drift.</p>
+
+    <!-- STEP 1: Source System -->
+    <div class="step bg-green-50">
+        <div class="text-xl font-semibold text-green-700">STEP 1: SOURCE SYSTEM (HIGH FIDELITY)</div>
+        <p class="text-lg mt-2 text-gray-700">The core transactional system generates data:</p>
+        <div class="bg-white p-3 rounded-lg mt-3 inline-block border border-green-300 shadow-md">
+            <span class="font-mono text-xl text-green-600">PaymentAmount: 99.9999999999</span>
+            <span class="text-sm text-gray-500 block">(Data Type: FLOAT 64)</span>
+        </div>
+    </div>
+
+    <div class="arrow"></div>
+
+    <!-- STEP 2: The Architectural Blind Spot -->
+    <div class="step bg-red-100 border-4 border-red-500">
+        <div class="text-xl font-semibold text-red-700">STEP 2: THE ARCHITECTURAL BLIND SPOT (FAF LAYER)</div>
+        <p class="text-lg mt-2 text-red-800 font-bold">UNLOGGED COERCION OCCURS HERE:</p>
+        <div class="bg-white p-3 rounded-lg mt-3 inline-block border border-red-300 shadow-md">
+            <span class="font-mono text-xl text-red-600">Data is forced into a lower precision type.</span>
+            <span class="error-tag">FAF 1: SEMANTIC DEGRADATION</span>
+        </div>
+        <p class="text-sm mt-2 text-red-700 italic">**This event is NOT logged. Observability tools report success.**</p>
+    </div>
+
+    <div class="arrow"></div>
+
+    <!-- STEP 3: Data Lake / Model Training -->
+    <div class="step bg-yellow-50">
+        <div class="text-xl font-semibold text-yellow-700">STEP 3: PERSISTED DATA (CORRUPTED)</div>
+        <p class="text-lg mt-2 text-gray-700">The corrupted value is saved for Model Training:</p>
+        <div class="bg-white p-3 rounded-lg mt-3 inline-block border border-yellow-300 shadow-md">
+            <span class="font-mono text-xl text-yellow-600">PaymentAmount: 99</span>
+            <span class="text-sm text-gray-500 block">(Data Type: INT32)</span>
+        </div>
+        <p class="text-red-700 mt-2 font-semibold">Loss of $0.9999... per transaction causes Model Decay.</p>
+    </div>
+
+    <div class="arrow"></div>
+
+    <!-- STEP 4: Consequence -->
+    <div class="step bg-blue-50">
+        <div class="text-xl font-semibold text-blue-700">STEP 4: CONSEQUENCE (The \$8,000 Weekly Cost)</div>
+        <p class="text-lg mt-2 text-gray-700">The model drifts weekly, forcing expensive, manual engineer intervention to correct symptoms.</p>
+        <p class="text-blue-700 mt-2 font-semibold">The cost is in the weekly correction cycle, not the pipeline error.</p>
+    </div>
+
+</div>
+
+</body>
+  </html>
